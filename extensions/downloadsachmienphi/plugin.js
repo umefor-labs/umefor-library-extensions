@@ -92,7 +92,53 @@ async function getDetail(bookUrl) {
   };
 }
 
+function isDownloadableEbookLink(href) {
+  const h = (href || "").toLowerCase();
+  return h.includes("mega.nz/") || h.includes("drive.google.com/file/d/") ||
+    h.endsWith(".epub") || h.endsWith(".pdf") || h.includes(".epub?") || h.includes(".pdf?");
+}
+
+async function fetchPostRenderedHtml(bookUrl) {
+  const parts = bookUrl.replace(/\/+$/, "").split("/");
+  const slug = parts[parts.length - 1];
+  if (slug && !slug.includes("?")) {
+    try {
+      const apiRaw = await httpGet(`${BASE_URL}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}`);
+      const arr = JSON.parse(apiRaw) || [];
+      if (arr[0] && arr[0].content && arr[0].content.rendered) {
+        return arr[0].content.rendered;
+      }
+    } catch (e) {}
+  }
+  return await httpGet(bookUrl);
+}
+
 async function getChapters(bookUrl) {
+  let renderedHtml = "";
+  try {
+    renderedHtml = await fetchPostRenderedHtml(bookUrl);
+  } catch (e) {}
+
+  if (renderedHtml) {
+    const rawLinks = JSON.parse(htmlSelect(renderedHtml, "a[href]"))
+      .filter(a => a.href && !isAffiliateUrl(a.href) && isDownloadableEbookLink(a.href));
+    const seen = {};
+    const dlChapters = [];
+    for (const a of rawLinks) {
+      if (seen[a.href]) continue;
+      seen[a.href] = true;
+      const label = (a.text || "").trim() || "EPUB / PDF";
+      dlChapters.push({
+        title: `Tải Ebook (${label})`,
+        url: a.href,
+        chapterIndex: dlChapters.length
+      });
+    }
+    if (dlChapters.length > 0) {
+      return dlChapters;
+    }
+  }
+
   return [{
     title: "Giới thiệu & Link tải Ebook (Mở Trình duyệt nguồn để tải PDF/EPUB)",
     url: bookUrl,
@@ -101,22 +147,17 @@ async function getChapters(bookUrl) {
 }
 
 async function getChapterContent(chapterUrl) {
-  const parts = chapterUrl.replace(/\/+$/, "").split("/");
-  const slug = parts[parts.length - 1];
-  let renderedHtml = "";
-  if (slug && !slug.includes("?")) {
-    try {
-      const apiRaw = await httpGet(`${BASE_URL}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}`);
-      const arr = JSON.parse(apiRaw) || [];
-      if (arr[0] && arr[0].content && arr[0].content.rendered) {
-        renderedHtml = arr[0].content.rendered;
-      }
-    } catch (e) {}
+  if (isDownloadableEbookLink(chapterUrl)) {
+    return {
+      kind: "NOVEL",
+      paragraphs: [
+        "Liên kết tải Ebook đầy đủ (hỗ trợ tải & giải nén EPUB/PDF trực tiếp trong app):",
+        chapterUrl
+      ],
+      images: []
+    };
   }
-  if (!renderedHtml) {
-    renderedHtml = await httpGet(chapterUrl);
-  }
-
+  const renderedHtml = await fetchPostRenderedHtml(chapterUrl);
   const paragraphs = JSON.parse(htmlStripToParagraphs(renderedHtml));
   const links = JSON.parse(htmlSelect(renderedHtml, "a[href]"))
     .filter(a => a.href && !isAffiliateUrl(a.href))

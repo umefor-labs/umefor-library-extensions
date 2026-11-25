@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "repoName": "Umefor Library Official Extensions",
   "repoDescription": "Kho nguồn mở rộng chính thức cho Umefor Library (Truyện chữ, Truyện tranh, Ebook & Sách nói).",
-  "generatedAt": "2026-11-25T07:21:38Z",
+  "generatedAt": "2026-11-25T08:09:18Z",
   "issueTemplateUrl": "https://github.com/umefor-labs/umefor-library-extensions/issues/new?template=request-source.yml",
   "extensions": [
     {
@@ -25,14 +25,14 @@
       "name": "DownloadSáchMiễnPhí (Ebook)",
       "mediaType": "NOVEL",
       "lang": "vi",
-      "version": 6,
+      "version": 7,
       "minAppApi": 1,
       "baseUrl": "https://downloadsachmienphi.com",
-      "description": "Tìm kiếm và lấy link tải ebook EPUB/PDF từ DownloadSáchMiễnPhí.",
+      "description": "Tìm kiếm và tự động tải/giải nén EPUB & PDF từ DownloadSáchMiễnPhí.",
       "scriptPath": "extensions/downloadsachmienphi/plugin.js",
-      "sha256": "534b1d4d966167c0bbd72ae31d602fc54ba446151bec91264137f4be3988e308",
+      "sha256": "35a12f75732e2aa52b8eafe9d69411082d9e122f61b45bf6278260f846ea4ae6",
       "iconUrl": "",
-      "changelog": "Phiên bản khởi tạo từ kho mở rộng chính thức Umefor Library.",
+      "changelog": "Tự động trích link MEGA/Drive/EPUB/PDF để app tải và giải nén toàn bộ nội dung sách.",
       "nsfw": false
     },
     {
