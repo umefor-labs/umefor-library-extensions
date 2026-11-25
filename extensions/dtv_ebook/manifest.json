@@ -1,0 +1,13 @@
+{
+  "id": "dtv_ebook",
+  "name": "DTV-Ebook (Sách & Audio)",
+  "mediaType": "NOVEL",
+  "lang": "vi",
+  "version": 6,
+  "minAppApi": 1,
+  "baseUrl": "https://dtv-ebook.com.vn",
+  "description": "Đọc truyện chữ và tìm link tải sách/ebook/audio từ DTV-Ebook.",
+  "iconUrl": "",
+  "changelog": "Phiên bản khởi tạo từ kho mở rộng chính thức Umefor Library.",
+  "nsfw": false
+}

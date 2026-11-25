@@ -1,0 +1,13 @@
+{
+  "id": "downloadsachmienphi",
+  "name": "DownloadSáchMiễnPhí (Ebook)",
+  "mediaType": "NOVEL",
+  "lang": "vi",
+  "version": 6,
+  "minAppApi": 1,
+  "baseUrl": "https://downloadsachmienphi.com",
+  "description": "Tìm kiếm và lấy link tải ebook EPUB/PDF từ DownloadSáchMiễnPhí.",
+  "iconUrl": "",
+  "changelog": "Phiên bản khởi tạo từ kho mở rộng chính thức Umefor Library.",
+  "nsfw": false
+}

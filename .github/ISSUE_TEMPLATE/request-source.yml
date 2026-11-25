@@ -1,0 +1,50 @@
+name: Đề xuất nguồn mới (Request New Source)
+description: Đề xuất một trang web đọc truyện chữ, truyện tranh, ebook hoặc sách nói để cộng đồng Umefor Library xem xét bổ sung.
+title: "[Nguồn mới] "
+labels: ["source-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn bạn đã đóng góp nguồn cho **Umefor Library**! Hãy điền thông tin bên dưới để chúng tôi kiểm tra cấu trúc trang và viết extension phù hợp.
+  - type: input
+    id: site_name
+    attributes:
+      label: Tên nguồn / Website
+      placeholder: "Ví dụ: Truyện Chữ ABC"
+    validations:
+      required: true
+  - type: input
+    id: site_url
+    attributes:
+      label: Đường dẫn trang chủ (URL)
+      placeholder: "https://example.com"
+    validations:
+      required: true
+  - type: dropdown
+    id: media_type
+    attributes:
+      label: Loại nội dung
+      options:
+        - Truyện chữ
+        - Truyện tranh
+        - Ebook (EPUB/PDF)
+        - Sách nói (Audio)
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Ngôn ngữ chính
+      placeholder: "vi / en / ..."
+      value: "vi"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Ghi chú thêm (tùy chọn)
+      description: Ví dụ link một bộ truyện mẫu trên trang, có Cloudflare/đăng nhập hay không...
+      placeholder: "https://example.com/truyen-mau"
+    validations:
+      required: false

@@ -1,0 +1,13 @@
+{
+  "id": "docln_hako",
+  "name": "DocLN / Hako (VN Novel)",
+  "mediaType": "NOVEL",
+  "lang": "vi",
+  "version": 6,
+  "minAppApi": 1,
+  "baseUrl": "https://docln.sbs",
+  "description": "Đọc Light Novel tiếng Việt từ Cổng Light Novel (DocLN / Hako).",
+  "iconUrl": "",
+  "changelog": "Phiên bản khởi tạo từ kho mở rộng chính thức Umefor Library.",
+  "nsfw": false
+}

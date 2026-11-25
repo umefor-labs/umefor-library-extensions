@@ -1,0 +1,26 @@
+name: Báo nguồn lỗi / Đổi tên miền (Broken Source)
+description: Báo cáo extension đang không tìm được truyện, 0 chương, hoặc website đã đổi tên miền mới.
+title: "[Nguồn lỗi] "
+labels: ["broken-source"]
+body:
+  - type: input
+    id: extension_id
+    attributes:
+      label: Tên hoặc ID Extension bị lỗi
+      placeholder: "Ví dụ: docln_hako / TruyenQQ"
+    validations:
+      required: true
+  - type: input
+    id: new_domain
+    attributes:
+      label: Tên miền mới (nếu trang vừa đổi domain)
+      placeholder: "https://..."
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả lỗi gặp phải
+      placeholder: "Tìm kiếm không ra kết quả / Mở truyện báo 0 chương / Lỗi HTTP 404..."
+    validations:
+      required: true

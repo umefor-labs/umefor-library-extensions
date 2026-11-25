@@ -1,0 +1,13 @@
+{
+  "id": "truyenqqko",
+  "name": "TruyenQQ (Truyện tranh)",
+  "mediaType": "COMIC",
+  "lang": "vi",
+  "version": 6,
+  "minAppApi": 1,
+  "baseUrl": "https://truyenqqko.com",
+  "description": "Đọc và tải truyện tranh tiếng Việt từ TruyenQQ.",
+  "iconUrl": "",
+  "changelog": "Phiên bản khởi tạo từ kho mở rộng chính thức Umefor Library.",
+  "nsfw": false
+}

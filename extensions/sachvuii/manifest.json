@@ -1,0 +1,13 @@
+{
+  "id": "sachvuii",
+  "name": "Sách Vui (Ebook VN)",
+  "mediaType": "NOVEL",
+  "lang": "vi",
+  "version": 6,
+  "minAppApi": 1,
+  "baseUrl": "https://sachvuii.com",
+  "description": "Tìm kiếm và tải ebook EPUB/PDF tiếng Việt từ Sách Vui.",
+  "iconUrl": "",
+  "changelog": "Phiên bản khởi tạo từ kho mở rộng chính thức Umefor Library.",
+  "nsfw": false
+}

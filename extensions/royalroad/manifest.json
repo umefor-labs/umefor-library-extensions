@@ -1,0 +1,13 @@
+{
+  "id": "royalroad",
+  "name": "RoyalRoad (EN Novel)",
+  "mediaType": "NOVEL",
+  "lang": "en",
+  "version": 6,
+  "minAppApi": 1,
+  "baseUrl": "https://www.royalroad.com",
+  "description": "Đọc tiểu thuyết web tiếng Anh từ RoyalRoad.",
+  "iconUrl": "",
+  "changelog": "Phiên bản khởi tạo từ kho mở rộng chính thức Umefor Library.",
+  "nsfw": false
+}
